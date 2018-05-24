@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: http://stage.cycoin.co/sitemap.xml
+Sitemap: https://cycoin.co/sitemap.xml
