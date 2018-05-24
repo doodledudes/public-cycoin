@@ -120,10 +120,9 @@ gulp.task('sass', function() {
 var assetsBaseDir = "./assets";
 var assets = [
     assetsBaseDir + '/css/**/*.css',
-    assetsBaseDir + '/vendor/authservice/**/*.*',
-    assetsBaseDir + '/app/**/*.*',
     assetsBaseDir + '/fonts/**/*.*',
-    'robots.txt'
+    'robots.txt',
+    'googlece1be91cdedae64a.html'
 ];
 gulp.task('copy', ['imagemin'], function () {
   gulp.src(assets, { base: './' })
@@ -223,7 +222,7 @@ gulp.task('sitemap', function () {
     read: false
   })
   .pipe(sitemap({
-    siteUrl: 'http://stage.cycoin.co/'
+    siteUrl: 'https://cycoin.co/'
   }))
   .pipe(gulp.dest(dest));
 });

@@ -1,0 +1,86 @@
+extends ./layout/_layout.pug
+
+block headerlogo
+  a.navbar-item(href='index.html')
+    img(src='assets/images/logo.png', alt='Cycoin', height='28')
+    span Cycoin
+  //- a
+//- block
+block footerlogo
+  .logo
+    img(src="assets/images/logo.png")
+    span Cycoin
+  //- logo
+//- block
+
+block pagecss
+  style.
+    body {
+      margin-top: 64px;
+    }
+    nav.navbar {
+      background: #2f4a5d;
+    }
+  
+block content
+  
+  section.section.normal.team
+    .container
+      h1.title.has-text-centered Roadmap
+      .timeline
+        .item
+          .phase
+            .date 19 Feb
+            .name Pre-ICO
+            .description
+              | 25% bonus tokens,
+              br
+              | 2 week campaign
+            //- description
+          //- phase
+        //- item
+        .item
+          .phase
+            .date 30 Apr
+            .name ICO
+            .description
+              | 20% to 5% bonus tokens,
+              br
+              | 4 week campaign
+            //- description
+          //- phase
+        //- item
+        .item
+          .phase
+            .date 6 Jun
+            .name Coin Distribution
+            .description Cycoin issued to ICO investors Cycoin listed
+          //- phase
+        //- item
+        .item
+          .phase
+            .date Jun
+            .name Fund invested
+            .description Margin lending and software development
+          //- phase
+        //- item
+        .item
+          .phase
+            .date Jul
+            .name Arbitrage Trading
+            .description Conduct Arbitrage trading
+          //- phase
+        //- item
+        .item
+          .phase
+            .date Sep
+            .name ICO
+            .description Investing
+          //- phase
+        //- item
+      //- timeline
+    //- container
+  //- section
+
+block scripts
+  script.
