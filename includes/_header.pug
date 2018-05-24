@@ -1,0 +1,32 @@
+header
+  nav.navbar.is-transparent.is-fixed-top
+    .container
+      .navbar-brand
+        block headerlogo
+        .navbar-burger.burger(data-target='navbarExampleTransparentExample')
+          span
+          span
+          span
+        //- navbar-burger
+      //- navbar-brand
+      #navbarExampleTransparentExample.navbar-menu
+        .navbar-end
+          a.navbar-item(href='index.html')
+            | Home
+          //- a
+          block homepagenav
+          //- a.navbar-item(href='')
+          //-   | Roadmap
+          //- //- a
+          a.navbar-item(href='team.html')
+            | Team
+          //- a
+          a.navbar-item(href='//docs.wixstatic.com/ugd/ef20fd_4a8a5ca527764416a2efa154863c4049.pdf', target="_blank")
+            i.fas.fa-arrow-alt-circle-down
+            | &nbsp;Whitepaper
+          //- a
+        //- navbar-end
+      //- navbar-menu
+    //- container
+  //- nav
+//- header

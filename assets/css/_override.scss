@@ -1,0 +1,28 @@
+// 1. Import the initial variables
+@import "../../bower_components/bulma/sass/utilities/initial-variables";
+@import "../../bower_components/bulma/sass/utilities/functions";
+
+// SAMPLE CUSTOM COLOR VAUES
+$primary                                      : #408ECE;
+$link                                         : #54494B;
+// $info                                         : #408ECE;
+$success                                      : #39e350;
+$warning                                      : #E3D081;
+$danger                                       : #E23C31;
+$dark                                         : #2F4A5D;
+
+// ALL
+$radius                                       : 0;
+
+// HEADER NAVBAR
+$navbar-height                                : 4rem;
+$navbar-background-color                      : transparent;
+$navbar-item-img-max-height                   : 1.8rem;
+$navbar-item-color                            : white;
+$navbar-item-hover-color                      : #39e350;
+
+// FOOTER
+$footer-background-color                      : #31393F;
+
+// 6. Import the rest of Bulma
+@import "../../bower_components/bulma/bulma";

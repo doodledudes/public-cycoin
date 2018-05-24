@@ -1,0 +1,74 @@
+extends ./layout/_layout.pug
+
+block headerlogo
+  a.navbar-item(href='index.html')
+    img(src='assets/images/logo.png', alt='Cycoin', height='28')
+    span Cycoin
+  //- a
+//- block
+block footerlogo
+  .logo
+    img(src="assets/images/logo.png")
+    span Cycoin
+  //- logo
+//- block
+
+block pagecss
+  style.
+    body {
+      margin-top: 64px;
+    }
+    nav.navbar {
+      background: #2f4a5d;
+    }
+  
+block content
+  
+  section.section.normal.team
+    .container
+      h1.title.has-text-centered Team
+      .content
+        .columns
+          .column
+            .card
+              .card-content
+                img(src="assets/images/team-marko.jpg")
+                h4.subtitle.is-4 Marko Kovac
+                p.has-text-centered
+                  a.has-text-primary(href="https://www.linkedin.com/in/terraphoenix/", target="_blank")
+                    i.fab.fa-linkedin
+                  //- a
+                  | &nbsp;&nbsp;
+                  a.has-text-info(href="mailto:marko.a.kovac@gmail.com", target="_blank")
+                    i.fas.fa-envelope
+                  //- a
+                //- has-text-centere
+                p Marko is a specialist capital arranger and advisor on commercial and structured finance and corporate funding solutions for existing and startup businesses primarily in the property, investment and finance sectors, providing business origination skills, investor networks, relationship building, due diligence and sourcing of funding placements from private equity, senior and mezzanine finance providers. Marko has also provided assistance to new businesses in the tech and utilities segments.
+              //- card-content
+            //- card
+          //- column
+          .column
+            .card
+              .card-content
+                img(src="assets/images/team-kevin.jpg")
+                h4.subtitle.is-4 Kevin Morgan
+                p.has-text-centered
+                  a.has-text-primary(href="https://www.linkedin.com/in/kevin-r-morgan/", target="_blank")
+                    i.fab.fa-linkedin
+                  //- a
+                  | &nbsp;&nbsp;
+                  a.has-text-info(href="mailto:kevinrmorgan@yahoo.com", target="_blank")
+                    i.fas.fa-envelope
+                  //- a
+                //- has-text-centere
+                p A hands-on CEO and COO/ Country Manager/ Senior Executive/Sales Leader - I'm a deeply experienced senior executive. Spanning the operational, buy-side and senior sell-side capabilities. I've successfully held a range of executive (C-Level and Country Manager), Board and senior operational and sales roles in SaaS platform, IT product, solutions and professional services and consulting management, financial services and wealth management organisations. Internationally and across Australia.
+              //- card-content
+            //- card
+          //- column
+        //- columns
+      //- content
+    //- container
+  //- section
+
+block scripts
+  script.

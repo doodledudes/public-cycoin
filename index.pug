@@ -1,0 +1,231 @@
+extends ./layout/_layout.pug
+
+block headerlogo
+  a.navbar-item(href='index.html')
+    img(src='assets/images/logo.png', alt='Cycoin', height='28')
+    span Cycoin
+  //- a
+//- block
+block footerlogo
+  .logo
+    img(src="assets/images/logo.png")
+    span Cycoin
+  //- logo
+//- block
+block homepagenav
+  a.navbar-item(href="#coindemocracy")
+    | Coin Democracy
+  //- a
+  
+block content
+
+  section.hero.is-fullheight.banner
+    .hero-body
+      .container
+        .content
+          h2.subtitle
+            | Cycoin Pre-ICO
+          //- h2
+        //- content
+        h1.title.is-1
+          | Coming Soon
+        //- h1
+        br
+        a.button.is-primary.is-medium(href="") Subscribe to be the first to know our launch
+      //- container
+    //- hero-body
+    section.section.vision
+      .container
+        h3.title.has-text-centered Form
+        .content
+          p Cycoin aims to provide new as well as established investors access to the cryptocurrency investment markets with a dependable and easy mechanism to hold a pool of cryptocurrencies which will deliver an income stream, without the headache of sourcing through hours of research and manual investing.
+          p Our aim is to use tried and probably low rish investment strategies to simply deliver income reward to holders of Cycoin.
+        //- content
+      //- container
+    //- section
+  //- section
+  section.section.normal.blurb.bb
+    .container
+      .content
+        .columns
+          .column
+            img(src="assets/images/icons/icon-bulb.png")
+            h4.subtitle.is-4 Why
+            p With so many new cryptocurrencies emerging. It is very timeconsuming to determine which coins are the real deal and which ones are not. Some of them are real and promising but have a huge task ahead before their idea is proven real. This is risky stuff. Rather than promising ridiculous potential future income and capital benefits that so many coins are trying and many eventually failing to do, we offer rational, understandable, real income deriving investment strategies conducted through established mechanism already evident in the crypto markets. The funds we raise will be invested into crypto currencies, so your money won’t be travelling anywhere other than as established in our criteria herein.
+          //- column
+          .column
+            img(src="assets/images/icons/icon-gear.png")
+            h4.subtitle.is-4 How It Will Work
+            p Cycoin is an asset backed coin, back be the pool of cryptocurrencies held. Cycoin holders will receive 51% voting power in the Cycoin company which holds the poll of cryptocurrency (see Coin Democracy). We will hold selected currencies that are established and real (usually in the top 100 by market cap) to take advantage of arbitrage opportunities that arise periodically in the crypto markets and top ten by margin lending currencies. We will also allocate a portion of the fund to invest in curated pre-ICO’s and ICO’s carefully scrutinized and selected by the team and external professionals in the crypto markets.
+          //- column
+          .column
+            img(src="assets/images/icons/icon-lab.png")
+            h4.subtitle.is-4 Fund Criteria
+            p The funds we raise will be invested into coins that are listed on exchanges which provide margin lending facilities, such as Bittrex and Poloniex. Fund will also be invested into arbitrage and another and sufficient trading volume is apparent. A signals app is in development to help identify good arbitrage trades and 5% of the fund will be reserved for development . legal and startup costs. The fund will also invest into select initial offerings of coin called pre-ICO’s and ICO’s. The initial investment of the fund will be to purchase and then lend the pool of coins held through a number of exchanges to immediately start earning income, until arbitrage opportunities are apparent and also while we sort through attractive Pre-ICO and ICO opportunities.
+          //- column
+        //- columns
+      //- content
+    //- container
+  //- section
+  section.section.normal.strategies.bb
+    .container
+      h1.title.has-text-centered Four Core strategies will be employed
+      .content
+        article.media
+          figure.media-left
+            p.image
+              img(src="assets/images/icons/icon-flash.png")
+            //- p
+          //- figure
+          .media-content
+            .content
+              p
+                strong Margin Lending
+                br
+                p For the first month, Initially 100% of the fund (less the development reserve mentioned above), then thereafter, a minimum of 50% and up to 80% of the find will be converted to crypto currencies and placed across a number of exchanges for the purpose of lending those currencies to traders on the exchanges to earn margin lending interest. Margin lending interest differs depending upon the currency and according to supply/demand disparity. They range from .02% per day to 5% per day.
+                p We will conver all margin interest earned to bitcoin and ether and distribute this to Cycoin Wallets proportional to the amount of Cycoin held daily.
+              //- p
+            //- content
+          //- media-content
+        //- article
+        article.media
+          figure.media-left
+            p.image
+              img(src="assets/images/icons/icon-savings.png")
+            //- p
+          //- figure
+          .media-content
+            .content
+              p
+                strong Opportunistic Arbitrage
+                br
+                p Up to 30% of the fund will be dedicated to talking arbitrage profit. Because cryptocurrentcy exchanges are not interlinked, at times the price pf the same asset may be different on two different exchanges. We will asses these differences and if attractive, take the opportunity to buy the asset at a lower price on one exchange and sell it at a higher price on the other.
+                p The price difference is called arbitrage profit and does not involve trying to predict the future updward or downward movement of a currency, as you would if you are trading asset.
+              //- p
+            //- content
+          //- media-content
+        //- article
+        article.media
+          figure.media-left
+            p.image
+              img(src="assets/images/icons/icon-chart.png")
+            //- p
+          //- figure
+          .media-content
+            .content
+              p
+                strong Pre-ICO and ICO investments
+                br
+                p Up to 50% of the fund will invest in good Pre-ICO and ICO opporunities. We will employ a range of external professional services to deliver up pre-vetted, curated opportunities. The team will select which of these looks to carry well founded and logical business goals, displays real world or digital application, are more likely to be widely adopted and the business goals appear to be achievable relatively quickly and can be liquidated easily. Profit will be converted to Bitcoin and Ether and distributed monthly.
+              //- p
+            //- content
+          //- media-content
+        //- article
+        article.media
+          figure.media-left
+            p.image
+              img(src="assets/images/icons/icon-gold.png")
+            //- p
+          //- figure
+          .media-content
+            .content
+              p
+                strong Fund Income Reinvestment
+                br
+                p 5% of the income derived from Pre-ICO and ICO investments will be retained from distribution and reinvested along with the general fund to increase the amount of crypto currencies held. This will serve to compound the earning capacity of the fund and increase the asset backing of the coin for the benefit of Cycoin holders.
+              //- p
+            //- content
+          //- media-content
+        //- article
+      //- content
+      br
+      br
+      .columns
+        .column
+          .content
+            h3.is-3.has-text-centered Fund Commencement
+            canvas#chartFundCommencement
+          //- content
+        //- column
+        .column
+          .content
+            h3.is-3.has-text-centered 4-6 Months after Commencement
+            canvas#chartAfterCommencement
+          //- content
+        //- column
+      //- columns
+    //- container
+  //- section
+  section.section.normal#coindemocracy
+    .container
+      h1.title.has-text-centered Coin Democracy
+      .content
+        p To provide a link between the entity which holds the pool of cryptocurrencies backing the Cycoin and Cycoin holders, for the purpose of giving confidence to Cycoin holders that their funds are safe and real power has been granted to them over their investment, after completion of the ICO, the following legal and technological processes will be undertaken and implemented on an ongoing basis.
+        ul
+          li A preference share ckass in the Cycoin company will be issued for Cycoin holders and held by the company as trustee for Cycoin holders. This transfer will be registered in the company’s register. The Cycoin trust will be also formed, stamped and registered. The beneficiaries of the trust will be Cycoin holders.
+          li The Cycoin taken smart contract will be created and Cycoin issued to Cycoin holders equal to one vote for one Cycoin. These Tokens will hold voting power wherein Cycoin holders can cast a vote when a vote is called. The majority vote will decide the outcome of the vote.
+          li An independent company secretary will be appointed to the Cycoin Company. The constitution of the Cycoin company will stipulate:
+            ul
+              li The company secretary will minute the monthly board meeting and post the minutes on the Cycoin Website;
+              li The company secretary will monitor the value of cryptocurrencies which back Cycoin and in the event that the value of the crypto asset pool falls, after taking into account market value fluctuations of those assets, below a margin of 10% from the previous 3 month average, the company secretary will commission an external audit of the company’s transactions;
+              li If the audti returns confirmation that 10% or greater of the crypto asset pool has been lost, the company secretary will call a vite by Cycoin holders to convert the crypto asset pool to Bitcoin and Ether and distribute the pool to Cycoin holders in proportion to the Cycoins held by each investor.
+            //- ul
+          //- li
+        //- ul
+        p This innovation has not yet been done in the cryptocurrency markets and is an all time first for Cycoin. This mechanism is designed to give effect to real asset backing and real control to investors over the fund in the event that things go wrong.
+        p It is also designed to give the ability for Cycoin holders to a cast a vote on any new initiatives introduced for benefit Cycoin holders
+      //- content
+    //- container
+  //- section
+  section.section.about
+    .container
+      h1.title.has-text-centered About Cycoin
+      .content
+        p Cycoin is an ERC20 taken based on the Etherium platform bringing all of the established transactional, privacy and security benefits of proven blockchain technology to Cycoin holders.
+        p Cycoin is a wealth coin, holders will receive an asset backed coin with access to daily income and monthly capital distributions delivered as income.
+        p Our asset backing formula is an innovation that has not yet been done in the cryptocurrency markets and is an all time first for Cycoin. The mechanism is designed to give effect to real asset backing and real control tp investors over the fund in the event that things go wrong.
+        p
+          big 50,000,000 Cycoins will be issued and will be listed ab external exchanges before or at ICO.
+      //- content
+    //- container
+  //- section
+  section.section.subscribe
+    .container
+      .content
+        .columns.is-centered.has-text-centered
+          .column.is-5
+            big
+              strong Subscribe to be the first to know our launch
+            //- big
+          //- column
+          .column.is-2
+            a.button.is-success.is-rounded(href="") Subscribe
+          //- column
+        //- columns
+      //- content
+    //- container
+  //- section
+
+block scripts
+  script.
+    new Chart(document.getElementById("chartFundCommencement"), {
+      "type": "doughnut",
+      "data": {
+        "datasets": [{
+          "data": [20, 100],
+          "backgroundColor": ["#65B1EC", "#3C5568"],
+          "borderWidth" : 0
+        }]
+      }
+    });
+    
+    new Chart(document.getElementById("chartAfterCommencement"), {
+      "type": "doughnut",
+      "data": {
+        "datasets": [{
+          "data": [65, 10, 15, 10],
+          "backgroundColor": ["#3C5568", "#65B1EC", "#C5E0F3", "#37E350"],
+          "borderWidth" : 0
+        }]
+      }
+    });
