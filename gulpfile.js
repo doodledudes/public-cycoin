@@ -29,7 +29,7 @@ var paths = {
 var dest = root + dir;
 
 gulp.task('main', ['clean'], function(callback) {
-  runSequence('bower-copy', ['pug-all', 'copy', 'js', 'sass'], 'inject-all', 'sitemap', callback);
+  runSequence('bower-copy', ['pug-all', 'copy', 'js', 'sass'], 'inject-all', callback);
 });
 
 // -----------------------------------------------------------------------------[ Compile PUG files to HTML ]
@@ -121,8 +121,8 @@ var assetsBaseDir = "./assets";
 var assets = [
     assetsBaseDir + '/css/**/*.css',
     assetsBaseDir + '/fonts/**/*.*',
-    'robots.txt',
-    'googlece1be91cdedae64a.html'
+    // 'robots.txt',
+    // 'googlece1be91cdedae64a.html'
 ];
 gulp.task('copy', ['imagemin'], function () {
   gulp.src(assets, { base: './' })
