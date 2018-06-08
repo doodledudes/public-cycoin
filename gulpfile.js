@@ -121,6 +121,7 @@ var assetsBaseDir = "./assets";
 var assets = [
     assetsBaseDir + '/css/**/*.css',
     assetsBaseDir + '/fonts/**/*.*',
+    assetsBaseDir + '/files/**/*.*'
     // 'robots.txt',
     // 'googlece1be91cdedae64a.html'
 ];
