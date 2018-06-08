@@ -25,7 +25,8 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   function triggerScroll() {
-    if(this.scrollY >= 536) {
+    var windowHeight = window.innerHeight;
+    if(this.scrollY >= windowHeight - 128) {
       document.querySelector('nav.navbar').classList.add("is-scrolled")
     } else {
       document.querySelector('nav.navbar').classList.remove("is-scrolled")
