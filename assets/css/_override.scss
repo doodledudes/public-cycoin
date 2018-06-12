@@ -24,5 +24,19 @@ $navbar-item-hover-color                      : #39e350;
 // FOOTER
 $footer-background-color                      : #31393F;
 
+
+// Setup your Custom Colors
+$twitter: #55acee;
+$twitter-invert: findColorInvert($twitter);
+$facebook: #3b5999;
+$facebook-invert: findColorInvert($facebook);
+// Add new color variables to the color map.
+@import "../../bower_components/bulma/sass/utilities/derived-variables";
+$addColors: (
+  "twitter":($twitter, $twitter-invert),
+  "facebook": ($facebook, $facebook-invert),
+);
+$colors: map-merge($colors, $addColors);
+
 // 6. Import the rest of Bulma
 @import "../../bower_components/bulma/bulma";

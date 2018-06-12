@@ -215,32 +215,7 @@ block content
 
 block scripts
   script.
-    new Chart(document.getElementById("chartFundCommencement"), {
-      "type": "doughnut",
-      "data": {
-        "labels": ["Development Reserve","Margin Lending Investments"],
-        "datasets": [{
-          "data": [5, 100],
-          "backgroundColor": ["#65B1EC", "#3C5568"],
-          "borderWidth" : 0
-        }]
-      }
-    });
-    
-    new Chart(document.getElementById("chartAfterCommencement"), {
-      "type": "doughnut",
-      "data": {
-        "labels": ["Margin Lending Investment", "Arbitrage Investments", "Development Reserve", "ICO Investments"],
-        "datasets": [{
-          "data": [60, 15, 5, 20],
-          "backgroundColor": ["#3C5568", "#65B1EC", "#C5E0F3", "#37E350"],
-          "borderWidth" : 0
-        }]
-      }
-    });
-    
     Vue.use(Buefy.default)
-    
     const ModalForm = {
         props: ['name', 'email', 'expinvestment'],
         template: `
@@ -300,5 +275,30 @@ block scripts
             expinvestment: ''
           }
         }
+      }
+    });
+    
+    
+    new Chart(document.getElementById("chartFundCommencement"), {
+      "type": "doughnut",
+      "data": {
+        "labels": ["Development Reserve","Margin Lending Investments"],
+        "datasets": [{
+          "data": [5, 100],
+          "backgroundColor": ["#65B1EC", "#3C5568"],
+          "borderWidth" : 0
+        }]
+      }
+    });
+    
+    new Chart(document.getElementById("chartAfterCommencement"), {
+      "type": "doughnut",
+      "data": {
+        "labels": ["Margin Lending Investment", "Arbitrage Investments", "Development Reserve", "ICO Investments"],
+        "datasets": [{
+          "data": [60, 15, 5, 20],
+          "backgroundColor": ["#3C5568", "#65B1EC", "#C5E0F3", "#37E350"],
+          "borderWidth" : 0
+        }]
       }
     });
