@@ -217,6 +217,9 @@ section {
     }
     .title {
       margin-bottom: 55px;
+      @include mobile {
+        margin-bottom: 0;
+      }
     }
     .subtitle {
       text-align: center;
@@ -282,6 +285,9 @@ footer.footer {
   & {
     position: relative;
     padding: 25px 0;
+    @include mobile {
+      padding: 0;
+    }
   }
   &::before {
     content: "";
@@ -294,6 +300,9 @@ footer.footer {
     top: 0;
     left: 0;
     right: 0;
+    @include mobile {
+      right: auto;
+    }
   }
   .item {
     & {
@@ -312,23 +321,45 @@ footer.footer {
     &:nth-child(odd) {
       margin-left: calc(50% + 20px);
       text-align: left;
+      @include mobile {
+        margin-left: 25px;
+      }
       .description {
         transform: translateX(-125%);
         text-align: right;
+        @include mobile {
+          transform: none;
+          margin-top: 5px;
+          width: auto;
+          text-align: left;
+        }
       }
     }
     &:nth-child(even) {
       margin-right: calc(50% + 20px);
       text-align: right;
+      @include mobile {
+        text-align: left;
+        margin-left: 25px;
+        margin-right: 0;
+      }
       .description {
         transform: translateX(125%);
         text-align: left;
+        @include mobile {
+          transform: none;
+          margin-top: 5px;
+          width: auto;
+        }
       }
     }
     .phase {
       display: inline-block;
       position: relative;
       vertical-align: middle;
+      @include mobile {
+        display: block;
+      }
       .date {
         color: gray;
       }
