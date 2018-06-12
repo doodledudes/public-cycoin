@@ -33,20 +33,4 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
 
-  // ===========================================================================[ LINK TO SECTION ]
-  // var obj = $("a.navbar-item");
-  // var body = $("html, body");
-  // $(obj).on("click", function(e) {
-  //   if ($(this).attr("data-target")) {
-  //     e.preventDefault();
-  //     var selector = $(this).attr("data-target");
-  //     try {
-  //       var objOffset = $(selector).offset().top - $("nav.navbar").height();
-  //     } catch(e){}
-  //     body.stop().animate({scrollTop: objOffset}, '200', 'swing');
-  //   } else {
-  //     location.href = '/' + this.href + "#";
-  //   }
-  // });
-
 });

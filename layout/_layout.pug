@@ -14,13 +14,17 @@ html(lang="en")
     //- CDN
     script(defer, src="//use.fontawesome.com/releases/v5.0.6/js/all.js")
     script(src="//cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js")
+    script(src="//unpkg.com/buefy")
     script(src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js")
     link(href="//fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700,800", rel="stylesheet")
     
     //- BOWER COMPONENTS
     // bower:css
     // endinject
-      
+    
+    //- CDN
+    link(href="//unpkg.com/buefy/lib/buefy.min.css", rel="stylesheet")
+    
     //- APP JS
     // inject:css
     // endinject
@@ -45,7 +49,8 @@ html(lang="en")
     
     include ../includes/_header.pug
     
-    block content
+    #app
+      block content
     
     include ../includes/_footer.pug
     
