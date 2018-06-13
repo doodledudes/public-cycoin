@@ -7,6 +7,21 @@ body {
   font-family: 'Nunito Sans', sans-serif;
 }
 
+@include touch {
+  body {
+    margin-top: 64px;
+  }
+  nav.navbar {
+    background: #2f4a5d;
+  }
+}
+@media screen and (max-width: 1087px) {
+  .navbar-menu {
+    background: transparent;
+    box-shadow: none;
+  }
+}
+
 // =============================================================================[ CUSTOM CSS ]
 
 // HEADER
