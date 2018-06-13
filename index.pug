@@ -1,5 +1,13 @@
 extends ./layout/_layout.pug
 
+block pagetitle
+  title Cycoin Pre-ICO
+//- block
+
+block metakeywords
+  meta(name="keywords", content="cycoin, ICO investing, ICO, pre-ICO, margin lending, cryptocoin, arbitrage, cryptocurrency arbitrage, cryptocurrency investing service, wealth building, income")
+//- block
+
 block headerlogo
   a.navbar-item(href='index.html')
     img(src='assets/images/logo.png', alt='Cycoin', height='28')
@@ -8,7 +16,7 @@ block headerlogo
 //- block
 block footerlogo
   .logo
-    img(src="assets/images/logo.png")
+    img(src="assets/images/logo.png", alt="Cycoin")
     span Cycoin
   //- logo
 //- block
@@ -23,11 +31,11 @@ block content
     .hero-body
       .container
         .content
-          h2.subtitle
+          h1.subtitle
             | Cycoin Pre-ICO
           //- h2
         //- content
-        h1.title.is-1
+        h2.title.is-1
           | Coming Soon
         //- h1
         br
@@ -56,17 +64,17 @@ block content
       .content
         .columns
           .column
-            img(src="assets/images/icons/icon-bulb.png")
+            img(src="assets/images/icons/icon-bulb.png", alt="Why")
             h4.subtitle.is-4 Why
             p With so many new cryptocurrencies emerging every day, it can be very time consuming to determine which coins are the real deal and which ones are not.  Furthermore, once you've determined this, many of the good coins that have merit still have to face huge tasks in order to become a working reality. Its risky stuff. So rather than promising ridiculous potential future income and capital benefits that so many coins are trying and failing to do, we offer rational, understandable and real income deriving investment strategies. These investment strategies are conducted through established mechanisms already evident in the crypto markets. The funds that we raise will be invested into cryptocurrencies, meaning that your money won't be travelling anywhere other than as establish in our funds criteria herein. 
           //- column
           .column
-            img(src="assets/images/icons/icon-gear.png")
+            img(src="assets/images/icons/icon-gear.png", alt="How It Will Work")
             h4.subtitle.is-4 How It Will Work
             p Cycoin is an asset backed coin, backed by the cryptocurrencies we purchase as we conduct Cycoin’s investment objectives. As detailed below (see Coin Democracy), Cycoin holders will receive voting power over the pool of cryptocurrencies. We will hold selected currencies that are established and real (usually in the top 100 by market cap) to conduct margin lending activities and take advantage of arbitrage opportunities that arise periodically in the crypto markets. We will also allocate a portion of the fund to invest in curated pre-ICO's and ICO's which will be carefully scrutinized and selected by the team and external professionals in the crypto markets.
           //- column
           .column
-            img(src="assets/images/icons/icon-lab.png")
+            img(src="assets/images/icons/icon-lab.png", alt="Funds Criteria")
             h4.subtitle.is-4 Funds Criteria
             p The funds we raise will be invested into coins that are listed on exchanges, like Bittrex and Poloniex, which provide margin lending facilities. Funds will also be invested into arbitrage opportunities where sufficient trading volume is apparent. The funds will also be invested into select initial offerings of coin called pre-ICO's and ICO's. At present, a signals app is in development to help identify good arbitrage trades and 5% of funds will be reserved for development, legal and startup costs. The initial investment of funds will be to purchase and then lend the pool of coins held via a number of exchanges. This will be done in order to immediately start earning income whilst we sort through attractive pre-ICO's and ICO opportunities and until arbitrage opportunities are apparent.
           //- column
@@ -81,7 +89,7 @@ block content
         article.media
           figure.media-left
             p.image
-              img(src="assets/images/icons/icon-flash.png")
+              img(src="assets/images/icons/icon-flash.png", alt="Margin Lending")
             //- p
           //- figure
           .media-content
@@ -98,7 +106,7 @@ block content
         article.media
           figure.media-left
             p.image
-              img(src="assets/images/icons/icon-savings.png")
+              img(src="assets/images/icons/icon-savings.png", alt="Opportunistic Arbitrage")
             //- p
           //- figure
           .media-content
@@ -116,7 +124,7 @@ block content
         article.media
           figure.media-left
             p.image
-              img(src="assets/images/icons/icon-chart.png")
+              img(src="assets/images/icons/icon-chart.png", alt="Pre-ICO and ICO investments")
             //- p
           //- figure
           .media-content
@@ -132,7 +140,7 @@ block content
         article.media
           figure.media-left
             p.image
-              img(src="assets/images/icons/icon-gold.png")
+              img(src="assets/images/icons/icon-gold.png", alt="Fund Income Reinvestment")
             //- p
           //- figure
           .media-content
@@ -203,7 +211,9 @@ block content
             //- big
           //- column
           .column.is-2
-            a.button.is-success.is-rounded(href="") Subscribe
+            button.button.is-success.is-rounded(@click="isComponentModalActive = true")
+              | Subscribe
+            //- button
           //- column
         //- columns
       //- content
@@ -219,43 +229,28 @@ block scripts
     const ModalForm = {
         props: ['name', 'email', 'expinvestment'],
         template: `
-          <form action="">
-            <div class="modal-card" style="width: auto">
+          <form class="validate" id="mc-embedded-subscribe-form" action="https://tooltwist.us18.list-manage.com/subscribe/post?u=ef40d79b0ddc521cac6d1f4f4&amp;id=0a0c42ce21" method="post" name="mc-embedded-subscribe-form" novalidate="">
+            <div class="modal-card" style="width: auto;">
               <header class="modal-card-head">
                 <p class="modal-card-title">Join our Whitelist</p>
               </header>
               <section class="modal-card-body">
                 <b-field label="Full Name">
-                  <b-input
-                    type="text"
-                    :value="name"
-                    placeholder="Johnny Appleseed"
-                    required>
-                  </b-input>
+                  <b-input type="text" :value="name" placeholder="Johnny Appleseed" required="" name="FULLNAME"></b-input>
                 </b-field>
-                
                 <b-field label="Email">
-                  <b-input
-                    type="email"
-                    :value="email"
-                    placeholder="johnny.appleseed@gmail.com"
-                    required>
-                  </b-input>
+                  <b-input type="email" :value="email" placeholder="johnny.appleseed@gmail.com" required="" name="EMAIL"></b-input>
                 </b-field>
-
                 <b-field label="Investment Amount (amount in Ether)">
-                  <b-input
-                    type="number"
-                    :value="expinvestment"
-                    password-reveal
-                    placeholder="$100"
-                    required>
-                  </b-input>
+                  <b-input type="number" :value="expinvestment" password-reveal="" placeholder="$100" required="" name="INAMOUNT"></b-input>
                 </b-field>
               </section>
+              <div style="position: absolute; left: -5000px;" aria-hidden="true">
+                <input type="text" name="b_ef40d79b0ddc521cac6d1f4f4_0a0c42ce21" tabindex="-1" value="" />
+              </div>
               <footer class="modal-card-foot has-text-right">
                 <button class="button is-default" type="button" @click="$parent.close()">Cancel</button>
-                <button class="button is-success">Join Now</button>
+                <input class="button is-success" type="submit" value="Join Now" name="subscribe" />
               </footer>
             </div>
           </form>
