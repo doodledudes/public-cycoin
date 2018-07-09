@@ -28,13 +28,30 @@ $footer-background-color                      : #31393F;
 // Setup your Custom Colors
 $twitter: #55acee;
 $twitter-invert: findColorInvert($twitter);
+//
 $facebook: #3b5999;
 $facebook-invert: findColorInvert($facebook);
+//
+$reddit: rgb(255, 69, 0);
+$reddit-invert: findColorInvert($reddit);
+//
+$md: #a1a1a1;
+$md-invert: findColorInvert($md);
+//
+$slack: #cf0e5b;
+$slack-invert: findColorInvert($slack);
+//
+$telegram: #2da5e1;
+$telegram-invert: findColorInvert($telegram);
 // Add new color variables to the color map.
 @import "../../bower_components/bulma/sass/utilities/derived-variables";
 $addColors: (
   "twitter":($twitter, $twitter-invert),
   "facebook": ($facebook, $facebook-invert),
+  "reddit": ($reddit, $reddit-invert),
+  "md": ($md, $md-invert),
+  "slack": ($slack, $slack-invert),
+  "telegram": ($telegram, $telegram-invert)
 );
 $colors: map-merge($colors, $addColors);
 

@@ -1,0 +1,101 @@
+extends ./layout/_layout.pug
+
+block pagetitle
+  title Cycoin Blog
+//- block
+
+block metakeywords
+  meta(name="keywords", content="cycoin, cryptocurrency, investing, wealth coin, coin, altcoin, best, safe, reliable, money, invest, digital, online, assets, easy investing, alternative")
+//- block
+
+block headerlogo
+  a.navbar-item(href='index.html')
+    img(src='assets/images/logo.png', alt='Cycoin', height='28')
+    span Cycoin
+  //- a
+//- block
+block footerlogo
+  .logo
+    img(src="assets/images/logo.png")
+    span Cycoin
+  //- logo
+//- block
+
+block pagecss
+  style.
+    body {
+      margin-top: 64px;
+    }
+    nav.navbar {
+      background: #2f4a5d;
+    }
+//- block
+  
+block content
+  
+  //- https://www.ccn.com/cryptocurrency-market-drops-to-241-billion-eos-takes-a-huge-beating/
+  
+  section.section.normal.topic
+    .container
+      .columns#blog
+        .column.is-8.is-offset-2
+          h1.title {{ post.title }}
+          .content
+            div(v-for="att in post.object.attachments")
+              div(v-if="att.objectType == 'photo'")
+                img(v-bind:src="att.image.url")
+                br
+              //- v-if
+              div(v-else-if="att.objectType == 'video'")
+                iframe(width="100%", height="400vw", v-bind:src="att.embed.url", frameborder="0", allow="autoplay; encrypted-media", allowfullscreen="")
+              //- v-else-if
+            //- v-for
+            p(v-html="post.object.content")
+          hr
+          .media
+            .media-left
+              figure.image.is-48x48
+                img(v-bind:src="post.actor.image.url", alt="Author")
+              //- figure
+            //- media-left
+            .media-content
+              p.title.is-4 {{ post.actor.displayName }}
+              p.subtitle.is-6
+                span.is-size-7.has-text-grey {{ published }}
+              //- p
+            //- media-content
+          //- media
+        //- column
+      //- columns
+    //- container
+  //- section
+
+block scripts
+  script.
+    var postid = location.href.split('=')[1];
+    var blog = new Vue({
+      el: '#blog',
+      data: {
+        post: [],
+        published: ''
+      },
+      created: function() {
+        this.loadPost();
+      },
+      methods: {
+        loadPost: function() {
+          var self = this;
+          axios.get("https://www.googleapis.com/plus/v1/activities/" + postid, {
+            params: {
+              key: 'AIzaSyB94Zs4Ce2Z3GJZlvFYa-diOxhdFP-E-QU'
+            }
+          }).then(function (res) {
+            self.post = res.data
+            self.published = moment(res.data.published).format("MMMM DD YYYY")
+          })
+          .catch(function (err) {
+            document.getElementById('blog').innerHTML = '<span class="has-text-danger">' + err.message + '</span>';
+          });
+        }
+      }
+    });

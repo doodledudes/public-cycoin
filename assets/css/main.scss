@@ -6,6 +6,9 @@ html {
 body {
   font-family: 'Nunito Sans', sans-serif;
 }
+#app {
+  min-height: 62vh;
+}
 
 @include touch {
   body {
@@ -243,6 +246,62 @@ section {
       text-align: center;
       margin-top: 35px;
       text-transform: uppercase;
+    }
+  }
+  // BLOG
+  &.blog {
+    .columns {
+      overflow-x: scroll;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+    }
+    .card {
+      & {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+      .card-image {
+        figure {
+          & {
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: whitesmoke;
+          }
+          img {
+            top: 50%;
+            transform: translateY(-50%);
+            width: auto;
+            height: 100%;
+            margin: 0 auto;
+          }
+        }
+      }
+      .card-content {
+        & {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          flex-grow: 1;
+        }
+        .media {
+          align-items: center;
+        }
+        .author {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+  // TOPIC
+  &.topic {
+    .media {
+      .media-left {
+        img {
+          border-radius: 50%;
+        }
+      }
     }
   }
 }
