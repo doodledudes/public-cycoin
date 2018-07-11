@@ -39,27 +39,17 @@ block content
     .container
       .columns#blog
         .column.is-8.is-offset-2
-          h1.title {{ post.title }}
-          .content
-            div(v-for="att in post.object.attachments")
-              div(v-if="att.objectType == 'photo'")
-                img(v-bind:src="att.image.url")
-                br
-              //- v-if
-              div(v-else-if="att.objectType == 'video'")
-                iframe(width="100%", height="400vw", v-bind:src="att.embed.url", frameborder="0", allow="autoplay; encrypted-media", allowfullscreen="")
-              //- v-else-if
-            //- v-for
-            p(v-html="post.object.content")
+          h1.title {{ post.title ? post.title : "Blog" }}
+          .content(v-html="post.content")
           hr
           .media
             .media-left
               figure.image.is-48x48
-                img(v-bind:src="post.actor.image.url", alt="Author")
+                img(v-bind:src="post.author.image.url", alt="Author")
               //- figure
             //- media-left
             .media-content
-              p.title.is-4 {{ post.actor.displayName }}
+              p.title.is-4 {{ post.author.displayName }}
               p.subtitle.is-6
                 span.is-size-7.has-text-grey {{ published }}
               //- p
@@ -85,9 +75,9 @@ block scripts
       methods: {
         loadPost: function() {
           var self = this;
-          axios.get("https://www.googleapis.com/plus/v1/activities/" + postid, {
+          axios.get("https://www.googleapis.com/blogger/v3/blogs/9211130937384517946/posts/" + postid, {
             params: {
-              key: 'AIzaSyB94Zs4Ce2Z3GJZlvFYa-diOxhdFP-E-QU'
+              key: 'AIzaSyBRNoNNjubEPKlZXDh7oMwexnNH7hMdFVU'
             }
           }).then(function (res) {
             self.post = res.data

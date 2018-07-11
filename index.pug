@@ -206,37 +206,30 @@ block content
       h1.title.has-text-centered Blog
       p
       h5.subtitle.has-text-centered Topics
-      .columns#blog.is-flex
+      .columns.is-flex#blog
         .column.is-4-desktop.is-6-tablet(v-for="post, index in posts", :key="post.id")
           .card
             .card-image
               figure.image.is-2by1(v-bind:style="{ 'background-image': 'url(' + thumbnails[index].src + ')' }")
-                //- img(v-bind:src="thumbnails[index].src", alt="Placeholder image")
-              //- figure
             //- card-image
             .card-content
               .media
                 .content
                   p.title.is-4
-                    a(:href="'topic.html?postid=' + post.id") {{ post.title }}
+                    a(:href="'topic.html?postid=' + post.id") {{ post.title ? post.title : "Read more" }}
                   //- p
                 //- media-content
               //- media
               .content
                 //- div(v-html="post.content")
                 //- br
-                p.subtitle.is-6.has-text-danger.author {{ post.actor.displayName }}
+                p.subtitle.is-6.has-text-danger.author {{ post.author.displayName }}
                 time.is-size-7 {{ published[index].date }}
               //- content
             //- card-content
           //- card
         //- column
       //- columns
-      .has-text-centered
-        a.button.is-light(href="blog.html")
-          | More posts&nbsp;&nbsp;
-          i.fas.fa-chevron-circle-right
-      //- has-text-centered
     //- container
   //- section
   section.section.subscribe
@@ -319,9 +312,9 @@ block scripts
       methods: {
         loadBlogs: function() {
           var self = this;
-          axios.get('https://www.googleapis.com/plus/v1/people/115711379672113531719/activities/public', {
+          axios.get('https://www.googleapis.com/blogger/v3/blogs/9211130937384517946/posts', {
             params: {
-              key: 'AIzaSyB94Zs4Ce2Z3GJZlvFYa-diOxhdFP-E-QU'
+              key: 'AIzaSyBRNoNNjubEPKlZXDh7oMwexnNH7hMdFVU'
             }
           }).then(function (res) {
             const parser = new DOMParser();
@@ -329,7 +322,6 @@ block scripts
               const html = parser.parseFromString(item.content, 'text/html');
               const img = html.querySelector('img');
               const url = img ? img.src : '';
-              //- const url = item.object.attachments[0].image.url;
               self.thumbnails.push({ src: url });
               self.published.push({ date: moment(item.published).format("MMMM DD YYYY") });
             });
@@ -338,7 +330,7 @@ block scripts
           .catch(function (err) {
             document.getElementById('blog').innerHTML = '<span class="has-text-danger">' + err.message + '</span>';
           });
-        }
+         }
       }
     });
     

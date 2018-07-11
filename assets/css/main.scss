@@ -296,6 +296,15 @@ section {
   }
   // TOPIC
   &.topic {
+    .content * {
+      font-size: inherit !important;
+      font-weight: inherit !important;
+      font-family: inherit !important;
+      line-height: inherit !important;
+      &:not(strong, b) {
+        color: inherit !important;
+      }
+    }
     .media {
       .media-left {
         img {

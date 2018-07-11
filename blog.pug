@@ -42,35 +42,23 @@ block content
         .column.is-4-desktop.is-6-tablet(v-for="post, index in posts", :key="post.id")
           .card
             .card-image
-              div(v-for="att in post.object.attachments")
-                div(v-if="att.objectType == 'photo'")
-                  figure.image.is-2by1(v-bind:style="{ 'background-image': 'url(' + att.image.url + ')' }")
-                //- v-if
-                div(v-else-if="att.objectType == 'video'")
-                  iframe(width="100%", height="auto", v-bind:src="att.embed.url", frameborder="0", allow="autoplay; encrypted-media", allowfullscreen="")
-                //- v-else-if
-              //- v-for
+              figure.image.is-2by1(v-bind:style="{ 'background-image': 'url(' + thumbnails[index].src + ')' }")
             //- card-image
             .card-content
               .media
                 .content
                   p.title.is-4
-                    a(:href="'topic.html?postid=' + post.id") {{ post.title }}
+                    a(:href="'topic.html?postid=' + post.id") {{ post.title ? post.title : "Read more" }}
                   //- p
                 //- media-content
               //- media
               .content
                 //- div(v-html="post.content")
                 //- br
-                p.subtitle.is-6.has-text-danger.author {{ post.actor.displayName }}
+                p.subtitle.is-6.has-text-danger.author {{ post.author.displayName }}
                 time.is-size-7 {{ published[index].date }}
               //- content
             //- card-content
-            div(v-for="att in post.object.attachments")
-              .card-content(v-if="att.objectType == 'article'", style="background: whitesmoke")
-                a.title.is-6(v-bind:href="att.url", target="_blank") {{ att.displayName }}
-              //- v-else-if
-            //- v-for
           //- card
         //- column
       //- columns
@@ -79,21 +67,11 @@ block content
 
 block scripts
   script.
-    
-    //- function handleResponse(response) {
-    //-   const parser = new DOMParser();
-    //-   response.items.forEach(item => {
-    //-     const html = parser.parseFromString(item.content, 'text/html');
-    //-     const img = html.querySelector('img');
-    //-     const url = img ? img.src : '';
-    //-     document.getElementById("content").innerHTML += `<div class='posts'><h1>${item.title}</h1><img src="${url}"><br/></div><a href='${item.url}'>Continue Reading</a>`;
-    //-   })
-    //- }
-    
     var blog = new Vue({
       el: '#blog',
       data: {
         posts: [],
+        thumbnails: [],
         published: []
       },
       created: function() {
@@ -102,12 +80,17 @@ block scripts
       methods: {
         loadBlogs: function() {
           var self = this;
-          axios.get('https://www.googleapis.com/plus/v1/people/115711379672113531719/activities/public', {
+          axios.get('https://www.googleapis.com/blogger/v3/blogs/9211130937384517946/posts', {
             params: {
-              key: 'AIzaSyB94Zs4Ce2Z3GJZlvFYa-diOxhdFP-E-QU'
+              key: 'AIzaSyBRNoNNjubEPKlZXDh7oMwexnNH7hMdFVU'
             }
           }).then(function (res) {
+            const parser = new DOMParser();
             res.data.items.forEach(item => {
+              const html = parser.parseFromString(item.content, 'text/html');
+              const img = html.querySelector('img');
+              const url = img ? img.src : '';
+              self.thumbnails.push({ src: url });
               self.published.push({ date: moment(item.published).format("MMMM DD YYYY") });
             });
             self.posts = res.data.items
@@ -115,6 +98,6 @@ block scripts
           .catch(function (err) {
             document.getElementById('blog').innerHTML = '<span class="has-text-danger">' + err.message + '</span>';
           });
-        }
+         }
       }
     });

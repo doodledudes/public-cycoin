@@ -26,6 +26,9 @@ $footer-background-color                      : #31393F;
 
 
 // Setup your Custom Colors
+$bitcoin: #f8a034;
+$bitcoin-invert: findColorInvert($bitcoin);
+//
 $twitter: #55acee;
 $twitter-invert: findColorInvert($twitter);
 //
@@ -46,6 +49,7 @@ $telegram-invert: findColorInvert($telegram);
 // Add new color variables to the color map.
 @import "../../bower_components/bulma/sass/utilities/derived-variables";
 $addColors: (
+  "bitcoin":($bitcoin, $bitcoin-invert),
   "twitter":($twitter, $twitter-invert),
   "facebook": ($facebook, $facebook-invert),
   "reddit": ($reddit, $reddit-invert),
