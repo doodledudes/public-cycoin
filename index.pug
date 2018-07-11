@@ -38,7 +38,8 @@ block content
         h2.title.is-1
           | Will Be Opening on 20 July 2018
         //- h1
-        h2.title.is-2.countdown.has-text-success#countdown
+        h2.title.is-2.countdown#countdown
+          small.is-size-5.has-text-success Loading countdown...
         br
         p Get in quick to secure your bonus, subscribe now to our Whitelist
         br
@@ -214,7 +215,7 @@ block content
           i.fas.fa-spinner.fa-spin.fa-2x.has-text-success
         //- h1
         .columns.is-flex
-          .column.is-4-desktop.is-6-tablet(v-for="post, index in posts", :key="post.id")
+          .column.is-4-desktop.is-6-tablet.is-12-mobile(v-for="post, index in posts", :key="post.id")
             .card
               .card-image
                 figure.image.is-2by1(v-bind:style="{ 'background-image': 'url(' + thumbnails[index].src + ')' }")
@@ -384,13 +385,13 @@ block scripts
       var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
       var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-      // Display the result in the element with id="demo"
-      document.getElementById("countdown").innerHTML = days + "d " + hours + "h "
-      + minutes + "m " + seconds + "s ";
+      // Display the result in the element with id="countdown"
+      document.getElementById("countdown").innerHTML = "<span class='days'>" + days + "</span>" + "d " + "<span class='hours'>" + hours + "</span>" + "h "
+      + "<span class='minutes'>" + minutes + "</span>" + "m " + "<span class='seconds'>" + seconds + "</span>" + "s ";
 
       // If the count down is finished, write some text 
       if (distance < 0) {
         clearInterval(x);
-        document.getElementById("demo").innerHTML = "EXPIRED";
+        document.getElementById("countdown").innerHTML = "EXPIRED";
       }
     }, 1000);
