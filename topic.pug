@@ -37,26 +37,28 @@ block content
   
   section.section.normal.topic
     .container
-      .columns#blog
-        .column.is-8.is-offset-2
-          h1.title {{ post.title ? post.title : "Blog" }}
-          .content(v-html="post.content")
-          hr
-          .media
-            .media-left
-              figure.image.is-48x48
-                img(v-bind:src="post.author.image.url", alt="Author")
-              //- figure
-            //- media-left
-            .media-content
-              p.title.is-4 {{ post.author.displayName }}
-              p.subtitle.is-6
-                span.is-size-7.has-text-grey {{ published }}
-              //- p
-            //- media-content
-          //- media
-        //- column
-      //- columns
+      #blog
+        .columns
+          .column.is-8.is-offset-2
+            h1.title {{ post.title ? post.title : "Blog" }}
+            .content(v-html="post.content")
+            hr
+            .media
+              .media-left
+                figure.image.is-48x48
+                  img(v-bind:src="post.author.image.url", alt="Author")
+                //- figure
+              //- media-left
+              .media-content
+                p.title.is-4 {{ post.author.displayName }}
+                p.subtitle.is-6
+                  span.is-size-7.has-text-grey {{ published }}
+                //- p
+              //- media-content
+            //- media
+          //- column
+        //- columns
+      //- #blog
     //- container
   //- section
 

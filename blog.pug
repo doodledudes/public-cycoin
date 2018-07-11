@@ -38,30 +38,35 @@ block content
       h1.title.has-text-centered Blog
       p
       h5.subtitle.has-text-centered Topics
-      .columns.is-multiline#blog
-        .column.is-4-desktop.is-6-tablet(v-for="post, index in posts", :key="post.id")
-          .card
-            .card-image
-              figure.image.is-2by1(v-bind:style="{ 'background-image': 'url(' + thumbnails[index].src + ')' }")
-            //- card-image
-            .card-content
-              .media
+      #blog
+        h1.title.has-text-centered(v-if="posts.length === 0")
+          i.fas.fa-spinner.fa-spin.fa-2x.has-text-success
+        //- h1
+        .columns.is-multiline
+          .column.is-4-desktop.is-6-tablet(v-for="post, index in posts", :key="post.id")
+            .card
+              .card-image
+                figure.image.is-2by1(v-bind:style="{ 'background-image': 'url(' + thumbnails[index].src + ')' }")
+              //- card-image
+              .card-content
+                .media
+                  .content
+                    p.title.is-4
+                      a(:href="'topic.html?postid=' + post.id") {{ post.title ? post.title : "Read more" }}
+                    //- p
+                  //- media-content
+                //- media
                 .content
-                  p.title.is-4
-                    a(:href="'topic.html?postid=' + post.id") {{ post.title ? post.title : "Read more" }}
-                  //- p
-                //- media-content
-              //- media
-              .content
-                //- div(v-html="post.content")
-                //- br
-                p.subtitle.is-6.has-text-danger.author {{ post.author.displayName }}
-                time.is-size-7 {{ published[index].date }}
-              //- content
-            //- card-content
-          //- card
-        //- column
-      //- columns
+                  //- div(v-html="post.content")
+                  //- br
+                  p.subtitle.is-6.has-text-danger.author {{ post.author.displayName }}
+                  time.is-size-7 {{ published[index].date }}
+                //- content
+              //- card-content
+            //- card
+          //- column
+        //- columns
+      //- #blog
     //- container
   //- section
 
