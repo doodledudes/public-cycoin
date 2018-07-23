@@ -50,6 +50,21 @@ html(lang="en")
       gtag('config', 'UA-119801306-1');
   body
     
+    //- FACEBOOK LIKE
+    #fb-root
+    script.
+      (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = 'https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v3.0';
+      fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+    //- script
+    
+    //- TWITTER FOLLOW
+    script(async="", src="https://platform.twitter.com/widgets.js", charset="utf-8")
+    
     .social.is-sticky
       a.has-text-bitcoin(href="//bitcointalk.org/index.php?action=profile;u=2217388;sa=account", target="_blank")
         i.fab.fa-bitcoin
@@ -73,7 +88,8 @@ html(lang="en")
     
     .follow
       a.twitter-follow-button(href="https://twitter.com/Cycoin1?ref_src=twsrc%5Etfw", data-size="large", data-show-screen-name="false", data-show-count="false") Follow @Cycoin1
-      script(async="", src="https://platform.twitter.com/widgets.js", charset="utf-8")
+      
+      .fb-like(data-href="https://www.facebook.com/cycoin/?ref=bookmarks", data-layout="button", data-action="like", data-size="large", data-show-faces="false", data-share="false")
     //- follow
     
     include ../includes/_header.pug
