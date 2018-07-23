@@ -470,10 +470,22 @@ footer.footer {
 .social {
   &.is-sticky {
     position: fixed;
+    left: 0;
     top: 50%;
     transform: translateY(-50%);
     box-shadow: 2px 2px 3px rgba(10,10,10,0.1), 0 0 0 0px rgba(10,10,10,0.1);
     z-index: 9;
+    @include mobile {
+      top: inherit;
+      bottom: 15px;
+      transform: none;
+      left: 50%;
+      transform: translateX(-50%);
+      right: auto;
+      margin: auto;
+      width: auto;
+      white-space: nowrap;
+    }
     a {
       display: block;
       line-height: normal;
@@ -486,6 +498,33 @@ footer.footer {
       & + a {
         border-top: 1px solid white;
       }
+      @include mobile {
+        display: inline-block;
+        & + a {
+          border-top: 0;
+        }
+      }
+    }
+  }
+}
+
+.follow {
+  & {
+    position: fixed;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    // box-shadow: 2px 2px 3px rgba(10,10,10,0.1), 0 0 0 0px rgba(10,10,10,0.1);
+    z-index: 9;
+    @include mobile {
+      top: inherit;
+      bottom: 55px;
+      transform: none;
+      left: 50%;
+      transform: translateX(-50%);
+      right: auto;
+      margin: auto;
+      width: auto;
     }
   }
 }
