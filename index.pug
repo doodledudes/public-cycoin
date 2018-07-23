@@ -35,7 +35,7 @@ block content
             | Cycoin Pre-ICO
           //- h2
         //- content
-        h2.title.is-1
+        h2.title.is-1#openingText
           | Will Be Opening on 10 August 2018
         //- h1
         h2.title.is-2.countdown#countdown
@@ -392,6 +392,8 @@ block scripts
       // If the count down is finished, write some text 
       if (distance < 0) {
         clearInterval(x);
-        document.getElementById("countdown").innerHTML = "EXPIRED";
+        document.getElementById("openingText").innerHTML = "Welcome!";
+        document.getElementById("countdown").innerHTML = "";
+        document.getElementById("countdown").style.marginBottom = "0px";
       }
     }, 1000);
