@@ -513,7 +513,7 @@ footer.footer {
     position: fixed;
     right: 15px;
     top: 50%;
-    transform: translateY(-50%);
+    transform: translateY(-200%);
     z-index: 9;
     @include mobile {
       top: inherit;
@@ -549,4 +549,21 @@ footer.footer {
   span {
     color: $success;
   }
+}
+
+// WHITELISTING
+#whiteListing,
+#cycoinSale {
+  display: none;
+}
+
+// SHOPIFY
+.shopify-button {
+  margin: auto;
+}
+.shopify-buy-frame--toggle.is-sticky[aria-label="cart"] {
+  top: 79px;
+  right: 15px;
+  transform: translateY(0);
+  -webkit-transform: translateY(0);
 }

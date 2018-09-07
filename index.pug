@@ -35,23 +35,266 @@ block content
             | Cycoin Pre-ICO
           //- h2
         //- content
-        h2.title.is-1#openingText
-          | Will Be Opening on 10 September 2018
-        //- h1
-        h2.title.is-2.countdown#countdown
-          small.is-size-5.has-text-success Loading countdown...
-        br
-        p Get in quick to secure your bonus, subscribe now to our Whitelist
-        br
-        //- a.button.is-primary.is-medium.is-uppercase(href="") Join Our Whitelist
-        button.button.is-primary.is-medium.is-uppercase(@click="isComponentModalActive = true")
-          | Join Our Whitelist
-        //- button
-        p &nbsp;
-        p Joining our whitelist will ensure you are the first to be notified of our pre-ICO launch and will secure you an early mover bonus of 25% Cycoin.
+        
+        small.is-size-5.has-text-success#loading Loading...
+        
+        #whiteListing
+          h2.title.is-1
+            | Will Be Opening on 10 September 2018
+          //- h1
+          h2.title.is-2.countdown#countdown ...
           br
-          | NOTE:&nbsp;
-          i There are limited whitelist spaces available.
+          p Get in quick to secure your bonus, subscribe now to our Whitelist
+          br
+          button.button.is-primary.is-medium.is-uppercase(@click="isComponentModalActive = true")
+            | Join Our Whitelist
+          //- button
+          p &nbsp;
+          p Joining our whitelist will ensure you are the first to be notified of our pre-ICO launch and will secure you an early mover bonus of 25% Cycoin.
+            br
+            | NOTE:&nbsp;
+            i There are limited whitelist spaces available.
+          //- p
+        //- #whiteListing
+        
+        #cycoinSale
+          h2.title.is-1 Pre-ICO Sale Is Now Open
+          .shopify-button#product-component-0a8a0bb163b
+          br
+          p.is-size-4 Sale Closes 5pm 5th October 2018
+        //- #cycoinSale
+        
+        script(type="text/javascript").
+          /*<![CDATA[*/
+          (function () {
+          var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
+          if (window.ShopifyBuy) {
+            if (window.ShopifyBuy.UI) {
+              ShopifyBuyInit();
+            } else {
+              loadScript();
+            }
+          } else {
+            loadScript();
+          }
+
+          function loadScript() {
+            var script = document.createElement('script');
+            script.async = true;
+            script.src = scriptURL;
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);
+            script.onload = ShopifyBuyInit;
+          }
+
+          function ShopifyBuyInit() {
+            var client = ShopifyBuy.buildClient({
+              domain: 'eentsy.myshopify.com',
+              storefrontAccessToken: '6b7a6fb67f9c91ec08a5aed7ebe03958',
+            });
+
+            ShopifyBuy.UI.onReady(client).then(function (ui) {
+              ui.createComponent('product', {
+                id: [1491638911065],
+                node: document.getElementById('product-component-0a8a0bb163b'),
+                moneyFormat: '%24%7B%7Bamount%7D%7D',
+                options: {
+                  "product": {
+                    "variantId": "all",
+                    "width": "240px",
+                    "contents": {
+                      "img": false,
+                      "imgWithCarousel": false,
+                      "title": false,
+                      "variantTitle": false,
+                      "price": false,
+                      "description": false,
+                      "buttonWithQuantity": false,
+                      "quantity": false
+                    },
+                    "text": {
+                      "button": "Buy Cycoin"
+                    },
+                    "styles": {
+                      "product": {
+                        "text-align": "center",
+                        "@media (min-width: 601px)": {
+                          "max-width": "100%",
+                          "margin-left": "0",
+                          "margin-bottom": "50px"
+                        },
+                        "carousel-button": {
+                          "display": "block"
+                        }
+                      },
+                      "button": {
+                        "background-color": "#39e350",
+                        "padding-left": "apx",
+                        "padding-right": "apx",
+                        ":hover": {
+                          "background-color": "#33cc48"
+                        },
+                        "border-radius": "0px",
+                        ":focus": {
+                          "background-color": "#33cc48"
+                        },
+                        "font-weight": "bold",
+                        "margin": "auto"
+                      },
+                      "title": {
+                        "font-size": "26px"
+                      },
+                      "price": {
+                        "font-size": "18px"
+                      },
+                      "compareAt": {
+                        "font-size": "15px"
+                      }
+                    }
+                  },
+                  "cart": {
+                    "contents": {
+                      "button": true
+                    },
+                    "styles": {
+                      "button": {
+                        "background-color": "#39e350",
+                        ":hover": {
+                          "background-color": "#33cc48"
+                        },
+                        "border-radius": "0px",
+                        ":focus": {
+                          "background-color": "#33cc48"
+                        },
+                        "font-weight": "bold"
+                      },
+                      "title": {
+                        "color": "#4a4a4a"
+                      },
+                      "footer": {
+                        "background-color": "#ffffff"
+                      },
+                      "header": {
+                        "color": "#4a4a4a"
+                      },
+                      "lineItems": {
+                        "color": "#4a4a4a"
+                      },
+                      "subtotalText": {
+                        "color": "#4a4a4a"
+                      },
+                      "subtotal": {
+                        "color": "#4a4a4a"
+                      },
+                      "notice": {
+                        "color": "#4a4a4a"
+                      },
+                      "currency": {
+                        "color": "#4a4a4a"
+                      },
+                      "close": {
+                        ":hover": {
+                          "color": "#4a4a4a"
+                        },
+                        "color": "#4a4a4a"
+                      },
+                      "emptyCart": {
+                        "color": "#4a4a4a"
+                      }
+                    }
+                  },
+                  "modalProduct": {
+                    "contents": {
+                      "img": false,
+                      "imgWithCarousel": true,
+                      "variantTitle": false,
+                      "buttonWithQuantity": true,
+                      "button": false,
+                      "quantity": false
+                    },
+                    "styles": {
+                      "product": {
+                        "@media (min-width: 601px)": {
+                          "max-width": "100%",
+                          "margin-left": "0px",
+                          "margin-bottom": "0px"
+                        }
+                      },
+                      "button": {
+                        "background-color": "#39e350",
+                        "padding-left": "apx",
+                        "padding-right": "apx",
+                        ":hover": {
+                          "background-color": "#33cc48"
+                        },
+                        "border-radius": "0px",
+                        ":focus": {
+                          "background-color": "#33cc48"
+                        },
+                        "font-weight": "bold"
+                      }
+                    }
+                  },
+                  "toggle": {
+                    "styles": {
+                      "toggle": {
+                        "background-color": "#39e350",
+                        ":hover": {
+                          "background-color": "#33cc48"
+                        },
+                        ":focus": {
+                          "background-color": "#33cc48"
+                        },
+                        "font-weight": "bold",
+                        "border-radius": "4px",
+                        "right": "15px"
+                      }
+                    }
+                  },
+                  "productSet": {
+                    "styles": {
+                      "products": {
+                        "@media (min-width: 601px)": {
+                          "margin-left": "-20px"
+                        }
+                      }
+                    }
+                  },
+                  "lineItem": {
+                    "styles": {
+                      "variantTitle": {
+                        "color": "#4a4a4a"
+                      },
+                      "title": {
+                        "color": "#4a4a4a"
+                      },
+                      "price": {
+                        "color": "#4a4a4a"
+                      },
+                      "quantity": {
+                        "color": "#4a4a4a"
+                      },
+                      "quantityIncrement": {
+                        "color": "#4a4a4a",
+                        "border-color": "#4a4a4a"
+                      },
+                      "quantityDecrement": {
+                        "color": "#4a4a4a",
+                        "border-color": "#4a4a4a"
+                      },
+                      "quantityInput": {
+                        "color": "#4a4a4a",
+                        "border-color": "#4a4a4a"
+                      }
+                    }
+                  }
+                }
+              });
+            });
+          }
+          })();
+          /*]]>*/
+        //- script
+        
       //- container
     //- hero-body
     section.section.vision
@@ -392,8 +635,10 @@ block scripts
       // If the count down is finished, write some text 
       if (distance < 0) {
         clearInterval(x);
-        document.getElementById("openingText").innerHTML = "Welcome!";
-        document.getElementById("countdown").innerHTML = "";
-        document.getElementById("countdown").style.marginBottom = "0px";
+        document.getElementById("loading").style.display = "none";
+        document.getElementById("cycoinSale").style.display = "block";
+      } else {
+        document.getElementById("loading").style.display = "none";
+        document.getElementById("whiteListing").style.display = "block";
       }
     }, 1000);
