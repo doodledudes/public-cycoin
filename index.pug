@@ -328,24 +328,26 @@ block content
       //- #blog
     //- container
   //- section
-  section.section.subscribe
-    .container
-      .content
-        .columns.is-centered.has-text-centered
-          .column.is-5
-            big
-              strong Join our whitelist, limited spaces available
-            //- big
-          //- column
-          .column.is-2
-            button.button.is-success.is-rounded(@click="isComponentModalActive = true")
-              | Subscribe
-            //- button
-          //- column
-        //- columns
-      //- content
-    //- container
-  //- section
+  //
+    section.section.subscribe
+      .container
+        .content
+          .columns.is-centered.has-text-centered
+            .column.is-5
+              big
+                strong Join our whitelist, limited spaces available
+              //- big
+            //- column
+            .column.is-2
+              button.button.is-success.is-rounded(@click="isComponentModalActive = true")
+                | Subscribe
+              //- button
+            //- column
+          //- columns
+        //- content
+      //- container
+    //- section
+  //
   
   b-modal(:active.sync="isComponentModalActive", has-modal-card="")
     modal-form(v-bind="formProps")
