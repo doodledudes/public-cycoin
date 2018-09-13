@@ -314,6 +314,45 @@ section {
     }
   }
 }
+// bonus box
+.bonus-box {
+  & {
+    padding: 12px 10px;
+
+    background: #15468d;
+    background: -moz-linear-gradient(top, #15468d 0%, #0c3b83 0%, #033279 2%, #013176 4%, #0a3e80 19%, #1b5791 37%, #1f5d95 53%, #1a5690 65%, #093c80 83%, #033379 92%, #013076 100%, #08387e 100%);
+    background: -webkit-linear-gradient(top, #15468d 0%,#0c3b83 0%,#033279 2%,#013176 4%,#0a3e80 19%,#1b5791 37%,#1f5d95 53%,#1a5690 65%,#093c80 83%,#033379 92%,#013076 100%,#08387e 100%);
+    background: linear-gradient(to bottom, #15468d 0%,#0c3b83 0%,#033279 2%,#013176 4%,#0a3e80 19%,#1b5791 37%,#1f5d95 53%,#1a5690 65%,#093c80 83%,#033379 92%,#013076 100%,#08387e 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#15468d', endColorstr='#08387e',GradientType=0 );
+    display: inline-flex;
+    align-items: center;
+    border-radius: 10px;
+    border: 2px solid #fff;
+    white-space: nowrap;
+  }
+  .discount {
+    font-size: 2rem;
+    line-height: 30px;
+    margin-right: 5px;
+    font-style: italic;
+  }
+  .text {
+    line-height: 12px;
+    font-size: .8rem;
+    span:first-child {
+      margin-left: 6px;
+    }
+  }
+}
+// pre-ico sale
+.pre-ico-sale {
+  padding: 15px;
+  border: 2px solid #39e350;
+  border-radius: 10px;
+}
+.payment-methods {
+
+}
 
 
 // FOOTER
@@ -556,6 +595,11 @@ footer.footer {
 #cycoinSale {
   display: none;
 }
+#cycoinSale {
+  .title {
+    margin: 15px 0;
+  }
+}
 
 // SHOPIFY
 .shopify-button {
@@ -566,4 +610,26 @@ footer.footer {
   right: 15px;
   transform: translateY(0);
   -webkit-transform: translateY(0);
+}
+
+
+// LOGO
+.logo {
+  & {
+    color: white;
+    margin-bottom: 5px;
+  }
+  img {
+    width: 60px;
+    vertical-align: middle;
+    display: inline;
+    margin-right: 10px;
+  }
+  span {
+    font-size: 2.2rem;
+    vertical-align: middle;
+  }
+  strong {
+    color: white;
+  }
 }

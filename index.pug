@@ -27,54 +27,114 @@ block homepagenav
   
 block content
 
-  section.hero.is-fullheight.banner
+  section.hero.is-fullheight.banner.has-text-left-tablet
     .hero-body
       .container
-        .content
-          h1.subtitle
-            | Cycoin Pre-ICO
-          //- h2
-        //- content
-        
-        small.is-size-5.has-text-success#loading Loading...
-        
-        #whiteListing
-          h2.title.is-1
-            | Will Be Opening on 10 September 2018
-          //- h1
-          h2.title.is-2.countdown#countdown ...
-          br
-          p Get in quick to secure your bonus, subscribe now to our Whitelist
-          br
-          button.button.is-primary.is-medium.is-uppercase(@click="isComponentModalActive = true")
-            | Join Our Whitelist
-          //- button
-          p &nbsp;
-          p Joining our whitelist will ensure you are the first to be notified of our pre-ICO launch and will secure you an early mover bonus of 25% Cycoin.
-            br
-            | NOTE:&nbsp;
-            i There are limited whitelist spaces available.
-          //- p
-        //- #whiteListing
-        
-        #cycoinSale
-          h2.title.is-1 Pre-ICO Sale Is Now Open
-          a.button.is-success.is-medium.is-uppercase(href="terms-and-conditions.html") Buy Cycoin
-          br
-          br
-          p.is-size-4 Sale Closes 5pm 5th October 2018
-        //- #cycoinSale
-        
-        br
-        
         .columns.is-centered
-          .column.is-3
-            a(href="https://tokenintelligence.io/i/2390", target="_blank")
-              img(src="https://tokenintelligence.io/badge/2390", width="100%")
-            //- a
-          //- columns
-        //- text-centered
-        
+          .column.is-4-widescreen
+            small.is-size-5.has-text-success#loading Loading...
+            
+            #whiteListing
+              .content
+                h1.subtitle
+                  | Cycoin Pre-ICO
+                //- h2
+              //- content
+              h2.title.is-1
+                | Will Be Opening on 10 September 2018
+              //- h1
+              h2.title.is-2.countdown#countdown ...
+              br
+              p Get in quick to secure your bonus, subscribe now to our Whitelist
+              br
+              button.button.is-primary.is-medium.is-uppercase(@click="isComponentModalActive = true")
+                | Join Our Whitelist
+              //- button
+              p &nbsp;
+              p Joining our whitelist will ensure you are the first to be notified of our pre-ICO launch and will secure you an early mover bonus of 25% Cycoin.
+                br
+                | NOTE:&nbsp;
+                i There are limited whitelist spaces available.
+              //- p
+            //- #whiteListing
+            
+            #cycoinSale
+              .content
+                .logo
+                  img(src='assets/images/logo.png', alt='Cycoin', height='28')
+                  span Cycoin
+                //- logo
+                h2.title.is-2
+                  | Cryptocurrency
+                  br
+                  | Investing
+                  br
+                  | Made Easy
+                  br
+                  p.has-text-success.is-size-6 ERC20 Blockchain for Crypto Investors
+                //- h2
+                table.table.is-inline-block(style="width: 300px;")
+                  tr
+                    td
+                      a(href="https://tokenintelligence.io/i/2390", target="_blank")
+                        img(src="https://tokenintelligence.io/badge/2390", width="100%")
+                      //- a
+                    //- td
+                  //- tr
+                //- table
+              //- content
+            //- #cycoinSale
+          //- column
+          .column.is-5-widescreen.is-7-tablet
+            .columns.level.is-centered
+              .column.is-4.level-items
+                .bonus-box
+                  .discount +25
+                  .text
+                    span BONUS
+                    br
+                    span %
+                  //- text
+                //- bonus-box
+              //- column
+              .column.is-4.level-items
+                .is-size-4.has-text-white.is-italic Now open
+              //- column
+            //- columns
+            .pre-ico-sale
+              .has-text-centered
+                p.is-size-4 Public Pre-ICO sale commenced
+                br
+                a.button.is-success.is-medium.is-uppercase.is-rounded(href="terms-and-conditions.html") Buy CYCOIN tokens now!
+                br
+                br
+                .payment-methods.level.is-flex
+                  .level-items
+                    img(src="assets/images/payment/icon-american-express.png")
+                  //- level-items
+                  .level-items
+                    img(src="assets/images/payment/icon-apple-pay.png")
+                  //- level-items
+                  .level-items
+                    img(src="assets/images/payment/icon-bitcoin.png")
+                  //- level-items
+                  .level-items
+                    img(src="assets/images/payment/icon-bitcoincash.png")
+                  //- level-items
+                  .level-items
+                    img(src="assets/images/payment/icon-etherum.png")
+                  //- level-items
+                  .level-items
+                    img(src="assets/images/payment/icon-litecoin.png")
+                  //- level-items
+                  .level-items
+                    img(src="assets/images/payment/icon-mastercard.png")
+                  //- level-items
+                //- payment-methods
+              //- has-text-centered
+            //- pre-ico-sale
+          //- column
+        //- columns
       //- container
     //- hero-body
     section.section.vision
