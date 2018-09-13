@@ -633,3 +633,44 @@ footer.footer {
     color: white;
   }
 }
+
+// TERMS AND CONDITIONS
+.tnc-wrap {
+  & {
+    width: 900px;
+    max-width: 100%;
+    margin: auto;
+    position: relative;
+  }
+  &::after {
+    content: '"Scroll Down"';
+    position: absolute;
+    @include desktop {
+      right: 0;
+      top: 50%;
+      transform: translate(100%+15, -50%);
+    }
+    @include touch {
+      right: 0;
+      left: 0;
+      bottom: 0;
+      margin: auto;
+      text-align: center;
+      transform: translateY(100%);
+    }
+  }
+}
+.tnc {
+  width: 900px;
+  max-width: 100%;
+  margin: auto;
+  height: 400px;
+  max-height: 100%;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  border: 1px solid #eee;
+  padding: 15px;
+  p.is-size-4 {
+    margin-bottom: 0;
+  }
+}
