@@ -32,6 +32,12 @@ block pagecss
     #posts {
       display: none;
     }
+    #lazyLoader {
+      text-align: center;
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-top: 20px;
+    }
 //- block
 
 block content
@@ -45,7 +51,7 @@ block content
         h1.title.has-text-centered(v-if="posts.length === 0")
           i.fas.fa-spinner.fa-spin.fa-2x.has-text-success
         //- h1
-        .columns.is-multiline.is-block-mobile#posts
+        .columns.is-multiline.is-block-mobile.is-centered#posts
           .column.is-4-desktop.is-6-tablet(v-for="(post, index) in posts", :key="post.id")
             .card
               .card-image
@@ -70,6 +76,7 @@ block content
           //- column
         //- columns
       //- #blog
+      #lazyLoader
     //- container
   //- section
 
@@ -111,8 +118,12 @@ block scripts
             window.onscroll = function(ev) {
               if ((window.innerHeight + window.scrollY) > document.body.offsetHeight) {
                 console.log(res.data.items.length + "=" + self.posts.length)
-                if(res.data.items.length > self.posts.length) {
+                document.getElementById("lazyLoader").innerHTML = "Scroll down to see more...";
+                if(res.data.items.length >= self.posts.length) {
                   self.posts.push(res.data.items[self.posts.length]);
+                } else {
+                  document.getElementById("lazyLoader").innerHTML = "Looks like you've reached the end.";
+                  document.getElementById("lazyLoader").style.color = "darkgray";
                 }
               }
             };
