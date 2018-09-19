@@ -45,7 +45,7 @@ block content
         h1.title.has-text-centered(v-if="posts.length === 0")
           i.fas.fa-spinner.fa-spin.fa-2x.has-text-success
         //- h1
-        .columns.is-multiline#posts
+        .columns.is-multiline.is-block-mobile#posts
           .column.is-4-desktop.is-6-tablet(v-for="(post, index) in posts", :key="post.id")
             .card
               .card-image
