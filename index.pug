@@ -24,9 +24,20 @@ block homepagenav
   a.navbar-item(href="#coindemocracy")
     | Coin Democracy
   //- a
-  
-block content
+//- block
 
+block pagecss
+  style.
+    .card .card-image figure.image {
+      padding-top: 30%;
+    }
+    .card .card-content {
+      padding: .8rem;
+    }
+  //- style
+//- block
+
+block content
   section.hero.is-fullheight.banner.has-text-left-tablet
     .hero-body
       .container
@@ -207,9 +218,9 @@ block content
                 br
                 p Up to 30% of the fund will be dedicated to talking arbitrage profit. Because cryptocurrency exchanges are not interlinked, at times the price of the same asset may be different on two different exchanges. We will asses these differences and if attractive, take the opportunity to buy the asset at a lower price on one exchange and sell it at a higher price on the other.
                 p We will utilise our Arbitrage App to collate price information of all currency pairs for all exchanges globally that have price and volume API data available. Our App will indentify and calculate instances where there are two of the same currency pairs on different exchanges which differ in price. The App will provide a signal to identify an arbitrage opportunity is available.
-                p The Cycoin team will check and verify each currency pair opportunity signal, assess the probability of securing the arbitrage profit against price gap, volume traded, currency pair network speeds, exchange transaction costs, exchange transaction speed, currency network fee and if attractive, the decision will be taken tol buy the low price and sell the high price on each exchange.
+                p The Cycoin team will check and verify each currency pair opportunity signal, assess the probability of securing the arbitrage profit against price gap, volume traded, currency pair network speeds, exchange transaction costs, exchange transaction speed, currency network fee and if attractive, the decision will be taken to buy the low price and sell the high price on each exchange.
                 p Our analysts have identified meaningful arbitrage opportunities with good depth of market displaying consistent net profit achievable of 2% per trade.
-                p The price difference is called arbitrage profit and does not involve trying to predict the future updward or downward movement of a currency, as you would if you are trading asset.
+                p The price difference is called arbitrage profit and does not involve trying to predict the future updward or downward movement of a currency, as you would if you are trading the asset.
                 p Arbitrage profit will be distributed monthly.
               //- p
             //- content
@@ -372,8 +383,8 @@ block content
         h1.title.has-text-centered(v-if="posts.length === 0")
           i.fas.fa-spinner.fa-spin.fa-2x.has-text-success
         //- h1
-        .columns.is-flex
-          .column.is-4-desktop.is-6-tablet.is-12-mobile(v-for="post, index in posts", :key="post.id")
+        .columns.is-flex#posts
+          .column.is-3-desktop.is-6-tablet.is-12-mobile(v-for="post, index in posts", :key="post.id")
             .card
               .card-image
                 figure.image.is-2by1(v-bind:style="{ 'background-image': 'url(' + thumbnails[index].src + ')' }")
@@ -381,7 +392,7 @@ block content
               .card-content
                 .media
                   .content
-                    p.title.is-4
+                    p.title.is-6
                       a(:href="'topic.html?postid=' + post.id") {{ post.title ? post.title : "Read more" }}
                     //- p
                   //- media-content
@@ -389,13 +400,18 @@ block content
                 .content
                   //- div(v-html="post.content")
                   //- br
-                  p.subtitle.is-6.has-text-danger.author {{ post.author.displayName }}
-                  time.is-size-7 {{ published[index].date }}
+                  p.subtitle.is-7.has-text-danger.author {{ post.author.displayName }}
+                  time.is-size-7
+                    small {{ published[index].date }}
+                  //- time
                 //- content
               //- card-content
             //- card
           //- column
         //- columns
+        .has-text-centered
+          a.button.is-link.is-success.is-rounded(href="blog.html") See all
+        //- has-text-centered
       //- #blog
     //- container
   //- section
@@ -494,7 +510,10 @@ block scripts
               self.thumbnails.push({ src: url });
               self.published.push({ date: moment(item.published).format("MMMM DD YYYY") });
             });
-            self.posts = res.data.items
+            // self.posts = res.data.items
+            for(x=0;x<=3;x++) {
+              self.posts.push(res.data.items[x]);
+            }
           })
           .catch(function (err) {
             document.getElementById('blog').innerHTML = '<span class="has-text-danger">' + err.message + '</span>';
