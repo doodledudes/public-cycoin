@@ -321,6 +321,9 @@ section {
         color: inherit !important;
       }
     }
+    figure {
+      z-index: 20 !important;
+    }
     .media {
       .media-left {
         img {

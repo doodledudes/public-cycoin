@@ -29,6 +29,9 @@ block pagecss
     nav.navbar {
       background: #2f4a5d;
     }
+    #posts {
+      display: none;
+    }
 //- block
 
 block content
@@ -42,8 +45,8 @@ block content
         h1.title.has-text-centered(v-if="posts.length === 0")
           i.fas.fa-spinner.fa-spin.fa-2x.has-text-success
         //- h1
-        .columns.is-multiline
-          .column.is-4-desktop.is-6-tablet(v-for="post, index in posts", :key="post.id")
+        .columns.is-multiline#posts
+          .column.is-4-desktop.is-6-tablet(v-for="(post, index) in posts", :key="post.id")
             .card
               .card-image
                 figure.image.is-2by1(v-bind:style="{ 'background-image': 'url(' + thumbnails[index].src + ')' }")
@@ -77,9 +80,10 @@ block scripts
       data: {
         posts: [],
         thumbnails: [],
-        published: []
+        published: [],
+        bottom: false
       },
-      created: function() {
+      mounted() {
         this.loadBlogs();
       },
       methods: {
@@ -90,6 +94,7 @@ block scripts
               key: 'AIzaSyBRNoNNjubEPKlZXDh7oMwexnNH7hMdFVU'
             }
           }).then(function (res) {
+            // GETS THE THUMBNAIL
             const parser = new DOMParser();
             res.data.items.forEach(item => {
               const html = parser.parseFromString(item.content, 'text/html');
@@ -98,11 +103,23 @@ block scripts
               self.thumbnails.push({ src: url });
               self.published.push({ date: moment(item.published).format("MMMM DD YYYY") });
             });
-            self.posts = res.data.items
-          })
-          .catch(function (err) {
+            // END
+            // self.posts = res.data.items;
+            for(x=0;x<=5;x++) {
+              self.posts.push(res.data.items[self.posts.length]);
+            }
+            window.onscroll = function(ev) {
+              if ((window.innerHeight + window.scrollY) > document.body.offsetHeight) {
+                console.log(res.data.items.length + "=" + self.posts.length)
+                if(res.data.items.length > self.posts.length) {
+                  self.posts.push(res.data.items[self.posts.length]);
+                }
+              }
+            };
+          }).catch(function (err) {
             document.getElementById('blog').innerHTML = '<span class="has-text-danger">' + err.message + '</span>';
           });
+          document.getElementById("posts").style.display = "flex";
          }
       }
     });

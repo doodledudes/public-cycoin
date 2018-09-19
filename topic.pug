@@ -29,6 +29,9 @@ block pagecss
     nav.navbar {
       background: #2f4a5d;
     }
+    #topic {
+      display: none;
+    }
 //- block
   
 block content
@@ -38,7 +41,7 @@ block content
   section.section.normal.topic
     .container
       #blog
-        .columns
+        .columns#topic
           .column.is-8.is-offset-2
             h1.title {{ post.title ? post.title : "Blog" }}
             .content(v-html="post.content")
@@ -88,6 +91,7 @@ block scripts
           .catch(function (err) {
             document.getElementById('blog').innerHTML = '<span class="has-text-danger">' + err.message + '</span>';
           });
+          document.getElementById("topic").style.display = "block";
         }
       }
     });
