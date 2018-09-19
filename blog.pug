@@ -115,10 +115,10 @@ block scripts
             for(x=0;x<=5;x++) {
               self.posts.push(res.data.items[self.posts.length]);
             }
+            document.getElementById("lazyLoader").innerHTML = "Scroll down to see more...";
             window.onscroll = function(ev) {
               if ((window.innerHeight + window.scrollY) > document.body.offsetHeight) {
                 console.log(res.data.items.length + "=" + self.posts.length)
-                document.getElementById("lazyLoader").innerHTML = "Scroll down to see more...";
                 if(res.data.items.length >= self.posts.length) {
                   self.posts.push(res.data.items[self.posts.length]);
                 } else {
