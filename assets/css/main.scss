@@ -70,9 +70,6 @@ section {
     & {
       background: #406B93;
       text-align: center;
-      @include touch {
-        padding-top: 52px;
-      }
     }
     * {
       color: white;
@@ -81,6 +78,11 @@ section {
       div, section {
         position: relative;
         z-index: 2;
+      }
+    }
+    .hero-body {
+      @include desktop {
+        padding-top: 8rem;
       }
     }
     &::before {
