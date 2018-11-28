@@ -29,10 +29,19 @@ block homepagenav
 block pagecss
   style.
     .card .card-image figure.image {
-      padding-top: 30%;
+      /*padding-top: 30%;*/
     }
     .card .card-content {
       padding: .8rem;
+    }
+    .card .card-content .media .content {
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+    .card .card-content .media .content .title {
+      text-overflow: ellipsis;
+      overflow: hidden;
     }
     .video {
       width: 500px;
@@ -58,10 +67,10 @@ block pagecss
 //- block
 
 block content
-  section.hero.is-fullheight.banner.has-text-left-tablet
+  section.hero.is-fullheight.banner.has-text-left-tablet.is-relative
     .hero-body
       .container
-        .columns.is-centered
+        .columns.is-centered.is-vertical-center
           .column.is-4-widescreen
             small.is-size-5.has-text-success#loading Loading...
             
@@ -104,15 +113,6 @@ block content
                   br
                   p.has-text-success.is-size-6 ERC20 Blockchain for Crypto Investors
                 //- h2
-                table.table.is-inline-block(style="width: 300px;")
-                  tr
-                    td
-                      a(href="https://tokenintelligence.io/i/2390", target="_blank")
-                        img(src="https://tokenintelligence.io/badge/2390", width="100%")
-                      //- a
-                    //- td
-                  //- tr
-                //- table
               //- content
             //- #cycoinSale
           //- column
@@ -164,6 +164,35 @@ block content
                 //- payment-methods
               //- has-text-centered
             //- pre-ico-sale
+          //- column
+        //- columns
+        br
+        .columns.is-vertical-center.is-multiline.has-text-centered
+          .column.is-6-mobile
+            img(src="assets/images/banner/banner-icobench.jpg", alt="")
+          //- column
+          .column.is-6-mobile
+            img(src="assets/images/banner/banner-foundico.jpg", alt="")
+          //- column
+          .column.is-6-mobile
+            img(src="assets/images/banner/banner-capturecoincheckup.jpg", alt="")
+          //- column
+          .column.is-6-mobile
+            img(src="assets/images/banner/banner-icobazar.jpg", alt="")
+          //- column
+          .column.is-6-mobile
+            table.table.is-inline-block.is-marginless(style="vertical-align: center;")
+              tr
+                td
+                  a(href="https://tokenintelligence.io/i/2390", target="_blank")
+                    img(src="https://tokenintelligence.io/badge/2390", width="100%")
+                  //- a
+                //- td
+              //- tr
+            //- table
+          //- column
+          .column.is-6-mobile
+            img(src="assets/images/banner/banner-coinpredictor.jpg", alt="")
           //- column
         //- columns
       //- container

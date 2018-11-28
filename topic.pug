@@ -52,7 +52,7 @@ block content
                   img(v-bind:src="post.author.image.url", alt="Author")
                 //- figure
               //- media-left
-              .media-content
+              .media-content.is-clipped
                 p.title.is-4 {{ post.author.displayName }}
                 p.subtitle.is-6
                   span.is-size-7.has-text-grey {{ published }}
